@@ -647,7 +647,7 @@ if __name__ == '__main__':
         '--percent',
         type=float,
         help='What percentage of the original sentences to keep',
-        default=0.5
+        default=0.15
     )
     parser.add_argument(
         '-n',
