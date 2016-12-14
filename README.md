@@ -1,6 +1,9 @@
 #Introduction
 This repository contains a Python script that demonstrates usage of the Rosette API Python bindings to summarize documents.
 
+##Summarization Algorithm
+The summarization algorithm operates on sentences, words, and, named entities in a document extracted by the Rosette API.  Each sentence is assigned a score based on the contentful words and named entity mentions that occur in the sentence.  The score for each sentence is normalized by the length of the sentence in terms of the number of word tokens in the sentence.  Sentences are also penalized with a logarithmic falloff based on how close to the beginning of the document they occur (setences near the end of the document are penalized more than sentences toward the beginning).
+
 ##`summarize.py`
 This script uses both the [`entities`](https://developer.rosette.com/features-and-functions#entity-extraction) and [`morphology/lemmas`](https://developer.rosette.com/features-and-functions#lemmas) endpoints to extract information about a document and uses that information to rank sentences by their content.  The script can then filter down to the only the most contentful sentences to provide a gist of the original content.
 
@@ -58,13 +61,12 @@ Once you've installed the dependencies you can run the script as follows:
                             automatic language detection (default: None)
       -p PERCENT, --percent PERCENT
                             What percentage of the original sentences to keep
-                            (default: 0.5)
+                            (default: 0.15)
       -n TOP_N, --top-n TOP_N
                             How many of the original sentences to keep (overrides
                             -p/--percent) (default: None)
       -v, --verbose         Get the full ADM with summarization info as JSON
                             (default: False)
-
 ###Example
 If you have a plain-text document you wish to summarize, you can do so with:
 
@@ -114,7 +116,3 @@ You can also enable the `-v/--verbose` option which outputs results as an Annota
       "summary": "The secret to understanding Saturn's C ring? \nSaturn's icy moon Mimas is dwarfed by the planet's enormous rings.\nScientists at Cornell University in Ithaca, N.Y., have been using data from NASA’s Cassini mission to Saturn, particularly its microwave passive radiometer, to study the planet’s rings. \nThe rings are mostly composed of ice, but “it is the small fraction of non-icy material – the dust the ring collects – that is valuable for clues about the ring’s origin and age,” doctoral candidate Zhimeng Zhang, who led the work, told the Cornell Chronicle.\nDust drifts through space from beyond the Kuiper Belt and hits Saturn’s rings. \nThe older a ring is, therefore, the more dust it will have time to collect. \nAnd scientists can analyze the dust to figure out how old the ring is.\nIt collides with Saturn’s rings, and sticks to them. \nZhang and her fellow researchers believe that the C ring has been “continuously polluted” by these space dust particles.\nWhen instruments like Cassini’s microwave passive radiometer measure a ring’s thermal emissions, dustier rings will have higher readings. ",
       "info": "maintained 10 sentences (27% of original sentences)"
     }
-    
-    
-###Summarization Algorithm
-The summarization algorithm operates on sentences, words, and, named entities in a document extracted by the Rosette API.  Each sentence is assigned a score based on the contentful words and named entity mentions that occur in the sentence.  The score for each sentence is normalized by the length of the sentence in terms of the number of word tokens in the sentence.  Sentences are also penalized with a logarithmic falloff based on how close to the beginning of the document they occur (setences near the end of the document are penalized more than sentences toward the beginning).
