@@ -2,10 +2,10 @@
 This repository contains a Python script that demonstrates usage of the Rosette API Python bindings to summarize documents.
 
 ##Summarization Algorithm
-The summarization algorithm operates on sentences, words, and, named entities in a document extracted by the Rosette API.  Each sentence is assigned a score based on the contentful words and named entity mentions that occur in the sentence.  The score for each sentence is normalized by the length of the sentence in terms of the number of word tokens in the sentence.  Sentences are also penalized with a logarithmic falloff based on how close to the beginning of the document they occur (setences near the end of the document are penalized more than sentences toward the beginning).
+The summarization algorithm operates on sentences, words, and named entities in a document extracted by the Rosette API.  Each sentence is assigned a score based on the contentful words and named entity mentions that occur in the sentence.  The score for each sentence is normalized by the length of the sentence in terms of the number of word tokens in the sentence.  Sentences are also penalized with a logarithmic falloff based on how close to the beginning of the document they occur (setences near the end of the document are penalized more than sentences toward the beginning).
 
 ##`summarize.py`
-This script uses both the [`entities`](https://developer.rosette.com/features-and-functions#entity-extraction) and [`morphology/lemmas`](https://developer.rosette.com/features-and-functions#lemmas) endpoints to extract information about a document and uses that information to rank sentences by their content.  The script can then filter down to the only the most contentful sentences to provide a gist of the original content.
+This script uses both the [`entities`](https://developer.rosette.com/features-and-functions#entity-extraction) and [`morphology/lemmas`](https://developer.rosette.com/features-and-functions#lemmas) endpoints to extract information about a document and uses that information to rank sentences by their content.  The script can then filter down to only the most contentful sentences to provide a gist of the original content.
 
 ###Installing Dependencies with Virtualenv
 The script is written for Python 3.  If you are alright with installing external Python packages globally, you may skip this section.
