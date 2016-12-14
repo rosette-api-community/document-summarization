@@ -32,34 +32,30 @@ DEFAULT_ROSETTE_API_URL = 'https://api.rosette.com/rest/v1/'
 CONTENTFUL_POS_TAGS = {
     # see https://developer.rosette.com/features-and-functions#parts-of-speech
     'ADJ',
-    #'ADP',
     'ADV',
+    'NOUN',
+    'PROPN',
+    'VERB'
+    # for reference, other possible POS tags:
+    #'ADP',
     #'AUX',
     #'CONJ',
     #'DET',
     #'INTJ',
-    'NOUN',
     #'NUM',
     #'PART',
     #'PRON',
-    'PROPN',
     #'PUNCT',
     #'SCONJ',
     #'SYM',
-    'VERB',
     #'X'
 }
 
 CONTENTFUL_ENTITY_TYPES = {
     # see https://developer.rosette.com/features-and-functions#-entity-types
-    #'IDENTIFIER:CREDIT_CARD_NUM',
     'IDENTIFIER:DISTANCE',
-    #'IDENTIFIER:EMAIL',
     'IDENTIFIER:LATITUDE_LONGITUDE',
     'IDENTIFIER:MONEY',
-    #'IDENTIFIER:PERSONAL_ID_NUM',
-    #'IDENTIFIER:PHONE_NUMBER',
-    #'IDENTIFIER:URL',
     'LOCATION',
     'NATIONALITY',
     'ORGANIZATION',
@@ -67,8 +63,14 @@ CONTENTFUL_ENTITY_TYPES = {
     'PRODUCT',
     'RELIGION',
     'TEMPORAL:DATE',
-    #'TEMPORAL:TIME',
     'TITLE'
+    # for reference, other possible entity types:
+    #'IDENTIFIER:CREDIT_CARD_NUM',
+    #'IDENTIFIER:EMAIL',
+    #'IDENTIFIER:PERSONAL_ID_NUM',
+    #'IDENTIFIER:PHONE_NUMBER',
+    #'IDENTIFIER:URL',
+    #'TEMPORAL:TIME',
 }
 
 def extent(obj):
