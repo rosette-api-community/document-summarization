@@ -1,10 +1,10 @@
-#Introduction
+# Introduction
 The summarization algorithm operates on sentences, words, and named entities in a document extracted by the Rosette API.  Each sentence is assigned a score based on the contentful words and named entity mentions that occur in the sentence.  The score for each sentence is normalized by the length of the sentence in terms of the number of word tokens in the sentence.  Sentences are also penalized with a logarithmic falloff based on how close to the beginning of the document they occur (setences near the end of the document are penalized more than sentences toward the beginning).
 
-##`summarize.py`
+## `summarize.py`
 This script uses both the [`entities`](https://developer.rosette.com/features-and-functions#entity-extraction) and [`morphology/lemmas`](https://developer.rosette.com/features-and-functions#lemmas) endpoints to extract information about a document and uses that information to rank sentences by their content.  The script can then filter down to only the most contentful sentences to provide a gist of the original content.
 
-###Installing Dependencies with Virtualenv
+### Installing Dependencies with Virtualenv
 The script is written for Python 3.  If you are alright with installing external Python packages globally, you may skip this section.
 
 You can install the dependencies using `virtualenv` so that you don't alter your global site packages.
@@ -27,12 +27,12 @@ Activate the virtual environment:
 
 Once you've activated the virtual environment you can proceed to install the requirements safely without affecting your globabl site packages.
 
-###Installing the Dependencies
+### Installing the Dependencies
 You can install the dependencies via `pip` (or `pip3` depending on your installation of Python 3) as follows using the provided `requirements.txt`:
 
     $ pip install -r requirements.txt
 
-###Usage
+### Usage
 Once you've installed the dependencies you can run the script as follows:
 
     ./summarize.py -h
@@ -64,7 +64,7 @@ Once you've installed the dependencies you can run the script as follows:
                             -p/--percent) (default: None)
       -v, --verbose         Get the full ADM with summarization info as JSON
                             (default: False)
-###Example
+### Example
 If you have a plain-text document you wish to summarize, you can do so with:
 
     $ ./summarize.py -k $ROSETTE_USER_KEY -i path/to/your/file.txt
