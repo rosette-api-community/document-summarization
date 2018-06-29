@@ -170,7 +170,7 @@ def request(content, endpoint, api, language=None, uri=False, **kwargs):
     result['lemmas'] -> ['this', 'be', 'an', 'example', '.']
     
     # Request ADM result output format
-    api.setUrlParameter('output', 'rosette') 
+    api.set_url_parameter('output', 'rosette') 
     result = request('George Washington', 'entities', api)
     result['attributes]['entities'] -> {
         'itemType': 'entities',
@@ -402,7 +402,7 @@ def get_adm(content, api, language=None, uri=False):
     
     """
     # get results as ADM
-    api.setUrlParameter('output', 'rosette')
+    api.set_url_parameter('output', 'rosette')
     # make the request for entities
     adm = request(content, 'entities', api, language=language, uri=uri)
     # make separate request for lemmas
