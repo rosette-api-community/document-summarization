@@ -1,2 +1,2 @@
 requests==2.12.3
-rosette-api==1.4.2
+rosette-api==1.9.0
